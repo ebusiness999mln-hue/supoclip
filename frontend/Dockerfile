@@ -122,4 +122,4 @@ ENV PORT=3107
 ENV HOSTNAME="0.0.0.0"
 
 # Start the application
-CMD ["node", "server.js"]
+CMD ["sh", "-c", "node -e \"const { execSync } = require('child_process'); try { execSync('/app/node_modules/.bin/prisma migrate deploy', {stdio: 'inherit'}); } catch(e) {} \" && node server.js"]
