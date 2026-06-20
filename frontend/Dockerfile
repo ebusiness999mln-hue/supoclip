@@ -1,4 +1,4 @@
-# syntax=docker/dockerfile:1.7
+# syntax=docker/dockerfile:1.4
 
 # Use Node.js with pnpm as the package manager
 FROM node:22-bookworm-slim AS base
