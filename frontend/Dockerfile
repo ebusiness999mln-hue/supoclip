@@ -17,8 +17,7 @@ RUN apt-get update && apt-get install -y openssl && rm -rf /var/lib/apt/lists/*
 
 # Copy dependency manifests only so app/schema changes don't invalidate deps
 COPY package.json pnpm-lock.yaml ./
-RUN --mount=type=cache,id=pnpm-store,target=/pnpm/store \
-    pnpm install --frozen-lockfile --ignore-scripts --store-dir /pnpm/store
+RUN pnpm install --frozen-lockfile --ignore-scripts
 
 # Development stage
 FROM base AS development
